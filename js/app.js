@@ -1,237 +1,126 @@
+
 "use strict";
 
-let hourOperation = [
-  "6am",
-  "7am",
-  "8am",
-  "9am",
-  "10am",
-  "11am",
-  "12pm",
-  "1pm",
-  "2pm",
-  "3pm",
-  "4pm",
-  "5pm",
-  "6pm",
-  "7pm",
-  "8pm",
-];
+let hourOperation = ["6:00am", "7:00am", "8:00am", "9:00am", "10:00am", "11:00am", "12:00pm", "1:00pm", "2:00pm", "3:00pm", "4:00pm", "5:00pm", "6:00pm", "7:00pm",];
 
-let Seattle = {
-  minH: 23,
-  maxH: 65,
-  averageC: 6.3,
-  array1: [],
-
-  numberOfCus: function () {
-    return Math.floor(Math.random() * (this.maxH - this.minH + 1) + this.minH);
-  },
+function SalmonFunction(locationName, minH, maxH, avg, customerEH, cookiesEH, total) {
+  this.locationName = locationName;
+  this.minH = minH;
+  this.maxH = maxH;
+  this.avg = avg;
+  this.customerEH = customerEH;
+  this.cookiesEH = cookiesEH;
+  this.total = total;
+}
+// random function
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+// prototype
+SalmonFunction.prototype.getRandomCust = function () {
+  for (let i = 0; i < hourOperation.length; i++) {
+    this.customerEH.push(random(this.minH, this.maxH));
+  }
 };
 
-Seattle.numberOfCus();
-
-// Calculate and store the simulated amounts of cookies purchased for each hour
-let sum = 0;
-for (let i = 0; i < hourOperation.length; i++) {
-  let avPerHour = Seattle.averageC * Seattle.numberOfCus();
-  avPerHour = parseInt(avPerHour);
-  sum = sum + avPerHour;
-  //   console.log(hourOperation[i] + `: ${avPerHour} cookies`);
-  // Store the results in array
-  Seattle.array1.push(hourOperation[i] + `: ${avPerHour} cookies`);
-}
-
-Seattle.array1.push(`total: ${sum} cookies`); // add the total sum to end of the array
-// console.log(Seattle.array1);
-
-let parent = document.getElementById("Seattle"); // get element by id
-
-let header2 = document.createElement("h2"); // create h2
-
-parent.appendChild(header2); // append h2 for his parent
-
-header2.textContent = "Seattle"; // text content
-
-let unOrderedList = document.createElement("ul"); // create ul
-
-parent.appendChild(unOrderedList); // append ul for parents
-
-for (let i = 0; i < Seattle.array1.length; i++) {
-  let listItems = document.createElement("li");
-  unOrderedList.appendChild(listItems);
-  listItems.textContent = Seattle.array1[i];
-} // create li by loob = to length
-
-let Tokyo = {
-  minH: 3,
-  maxH: 24,
-  averageC: 1.2,
-  array2: [],
-
-  numberOfCus: function () {
-    return Math.floor(Math.random() * (this.maxH - this.minH + 1) + this.minH);
-  },
+SalmonFunction.prototype.getCookesPH = function () {
+  for (let i = 0; i < hourOperation.length; i++) {
+    this.cookiesEH.push(Math.floor(this.customerEH[i] * this.avg));
+    this.total += this.cookiesEH[i];
+  }
 };
 
-Tokyo.numberOfCus();
-let sum1 = 0;
-for (let i = 0; i < hourOperation.length; i++) {
-  let avPerHour = Tokyo.averageC * Tokyo.numberOfCus();
-  avPerHour = parseInt(avPerHour);
-  sum1 = sum1 + avPerHour;
-  //   console.log(hourOperation[i] + `: ${avPerHour} cookies`);
-  // Store the results in array
-  Tokyo.array2.push(hourOperation[i] + `: ${avPerHour} cookies`);
-}
-
-Tokyo.array2.push(`total: ${sum1} cookies`); // add the total sum to end of the array
-// console.log(Tokyo.array2);
-
-let pare1 = document.getElementById("Tokyo"); // get element by id
-
-let head2 = document.createElement("h2"); // create h2
-
-pare1.appendChild(head2); // append h2 for his parent
-
-head2.textContent = "Tokyo"; // text content
-
-let unlist2 = document.createElement("ul"); // create ul
-
-pare1.appendChild(unlist2); // append ul for parents
-
-for (let i = 0; i < Seattle.array1.length; i++) {
-  let listItems = document.createElement("li");
-  unlist2.appendChild(listItems);
-  listItems.textContent = Tokyo.array2[i];
-} // create li by loob = to length
-
-let Dubai = {
-  minH: 11,
-  maxH: 38,
-  averageC: 3.7,
-  array3: [],
-
-  numberOfCus: function () {
-    return Math.floor(Math.random() * (this.maxH - this.minH + 1) + this.minH);
-  },
+SalmonFunction.prototype.tableRender1 = function () {
+  let table2 = document.createElement("table");
+  par.appendChild(table2);
+  let tbody = document.createElement("tbody");
+  table2.appendChild(tbody);
+  let tRow = document.createElement("tr");
+  tbody.appendChild(tRow);
+  let tData=document.createElement('td');
+  tRow.appendChild(tData);
+  tData.textContent=this.locationName;
+  for (let i = 0; i < hourOperation.length; i++) {
+    let tData = document.createElement("td");
+    tRow.appendChild(tData);
+    tData.textContent = this.cookiesEH[i];
+  }
+  let tDataFprTotal=document.createElement('td');
+  tRow.appendChild(tDataFprTotal);
+  tDataFprTotal.textContent=this.total;
 };
 
-Dubai.numberOfCus();
-//
-let sum2 = 0;
-for (let i = 0; i < hourOperation.length; i++) {
-  let avPerHour = Dubai.averageC * Dubai.numberOfCus();
-  avPerHour = parseInt(avPerHour);
-  sum2 = sum2 + avPerHour;
-  //   console.log(hourOperation[i] + `: ${avPerHour} cookies`);
-  // Store the results in array
-  Dubai.array3.push(hourOperation[i] + `: ${avPerHour} cookies`);
-}
+let par = document.getElementById("parent");//globle parent 
 
-Dubai.array3.push(`total: ${sum2} cookies`); // add the total sum to end of the array
-// console.log(Dubai.array3);
+let tableRenderForHead = function () {// create table for the head 
+  let table = document.createElement("table");
+  par.appendChild(table);
+  let thead = document.createElement("thead");
+  table.appendChild(thead);
+  let tRow1 = document.createElement("tr");
+  thead.appendChild(tRow1);
+  let tHeadForTB=document.createElement('th');
+  tRow1.appendChild(tHeadForTB);
+  tHeadForTB.textContent='location';
 
-let pare2 = document.getElementById("Dubai"); // get element by id
+  for (let i = 0; i < hourOperation.length; i++) {
+    let tHead1 = document.createElement("th");
+    tRow1.appendChild(tHead1);
+    tHead1.textContent = hourOperation[i];
+  }
 
-let head3 = document.createElement("h2"); // create h2
-
-pare2.appendChild(head3); // append h2 for his parent
-
-head3.textContent = "Dubai"; // text content
-
-let unlist3 = document.createElement("ul"); // create ul
-
-pare2.appendChild(unlist3); // append ul for parents
-
-for (let i = 0; i < Seattle.array1.length; i++) {
-  let listItems = document.createElement("li");
-  unlist3.appendChild(listItems);
-  listItems.textContent = Dubai.array3[i];
-} // create li by loob = to length
-
-let Paris = {
-  minH: 20,
-  maxH: 38,
-  averageC: 2.3,
-  array4: [],
-
-  numberOfCus: function () {
-    return Math.floor(Math.random() * (this.maxH - this.minH + 1) + this.minH);
-  },
+  let tHeadForTE=document.createElement('th');
+  tRow1.appendChild(tHeadForTE);
+  tHeadForTE.textContent='Daily Location Total';
 };
+tableRenderForHead ();//calling the table rander
 
-Paris.numberOfCus();
-let sum3 = 0;
-for (let i = 0; i < hourOperation.length; i++) {
-  let avPerHour = Paris.averageC * Paris.numberOfCus();
-  avPerHour = parseInt(avPerHour);
-  sum3 = sum3 + avPerHour;
-  //   console.log(hourOperation[i] + `: ${avPerHour} cookies`);
-  // Store the results in array
-  Paris.array4.push(hourOperation[i] + `: ${avPerHour} cookies`);
-}
 
-Paris.array4.push(`total: ${sum3} cookies`); // add the total sum to end of the array
-// console.log(Paris.array4);
 
-let pare3 = document.getElementById("Paris"); // get element by id
 
-let head4 = document.createElement("h2"); // create h2
+//---------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
 
-pare3.appendChild(head4); // append h2 for his parent
 
-head4.textContent = "Paris"; // text content
+let Seattle = new SalmonFunction("seattle", 23, 65, 6.3, [], [], 0);
+// console.log(Seattle);
 
-let unlist4 = document.createElement("ul"); // create ul
+Seattle.getRandomCust();
+Seattle.getCookesPH();
+Seattle.tableRender1();
 
-pare3.appendChild(unlist4); // append ul for parents
 
-for (let i = 0; i < Seattle.array1.length; i++) {
-  let listItems = document.createElement("li");
-  unlist4.appendChild(listItems);
-  listItems.textContent = Paris.array4[i];
-} // create li by loob = to length
+//---------------------------------------------------
+//---------------------------------------------------
+let tokyo = new SalmonFunction("Tokyo", 3, 24, 1.2, [], [], 0);
+// console.log(tokyo);
 
-let Lima = {
-  minH: 2,
-  maxH: 16,
-  averageC: 4.6,
-  array1: [],
+tokyo.getRandomCust();
+tokyo.getCookesPH();
+tokyo.tableRender1();
+//----------------------------------------------
+//----------------------------------------------
+let dubai = new SalmonFunction("Dubai", 11, 38, 3.7, [], [], 0);
+// console.log(dubai);
 
-  numberOfCus: function () {
-    return Math.floor(Math.random() * (this.maxH - this.minH + 1) + this.minH);
-  },
-};
+dubai.getRandomCust();
+dubai.getCookesPH();
+dubai.tableRender1();
+//----------------------------------------------
+//----------------------------------------------
 
-Lima.numberOfCus();
-let sum4 = 0;
-for (let i = 0; i < hourOperation.length; i++) {
-  let avPerHour = Lima.averageC * Lima.numberOfCus();
-  avPerHour = parseInt(avPerHour);
-  sum4 = sum4 + avPerHour;
-  //   console.log(hourOperation[i] + `: ${avPerHour} cookies`);
-  // Store the results in array
-  Lima.array1.push(hourOperation[i] + `: ${avPerHour} cookies`);
-}
+let paris = new SalmonFunction("Paris", 20, 38, 2.3, [], [], 0);
+// console.log(paris);
 
-Lima.array1.push(`total: ${sum4} cookies`); // add the total sum to end of the array
-// console.log(Lima.array1);
+paris.getRandomCust();
+paris.getCookesPH();
+paris.tableRender1();
+//---------------------------
+//---------------------------
+let lima = new SalmonFunction("Lima", 2, 16, 4.6, [], [], 0);
+// console.log(lima);
 
-let pare4 = document.getElementById("Lima"); // get element by id
-
-let head5 = document.createElement("h2"); // create h2
-
-pare4.appendChild(head5); // append h2 for his parent
-
-head5.textContent = "Lima"; // text content
-
-let unlist5 = document.createElement("ul"); // create ul
-
-pare4.appendChild(unlist5); // append ul for parents
-
-for (let i = 0; i < Seattle.array1.length; i++) {
-  let listItems = document.createElement("li");
-  unlist5.appendChild(listItems);
-  listItems.textContent = Lima.array1[i];
-} // create li by loob = to length
+lima.getRandomCust();
+lima.getCookesPH();
+lima.tableRender1();
