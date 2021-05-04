@@ -148,6 +148,6 @@ let lima = new SalmonFunction("Lima", 2, 16, 4.6, [], [], 0);
 lima.getRandomCust();
 lima.getCookesPH();
 lima.tableRender1();
-
-
+//----------------------
 tableRenderForFoot();
+
