@@ -1,6 +1,6 @@
 
 "use strict";
-
+let branchesArray=[];
 let hourOperation = ["6:00am", "7:00am", "8:00am", "9:00am", "10:00am", "11:00am", "12:00pm", "1:00pm", "2:00pm", "3:00pm", "4:00pm", "5:00pm", "6:00pm", "7:00pm",];
 
 function SalmonFunction(locationName, minH, maxH, avg, customerEH, cookiesEH, total) {
@@ -11,6 +11,8 @@ function SalmonFunction(locationName, minH, maxH, avg, customerEH, cookiesEH, to
   this.customerEH = customerEH;
   this.cookiesEH = cookiesEH;
   this.total = total;
+  branchesArray.push(this);
+
 }
 // random function
 function random(min, max) {
@@ -30,35 +32,20 @@ SalmonFunction.prototype.getCookesPH = function () {
   }
 };
 
-SalmonFunction.prototype.tableRender1 = function () {
-  let table2 = document.createElement("table");
-  par.appendChild(table2);
-  let tbody = document.createElement("tbody");
-  table2.appendChild(tbody);
-  let tRow = document.createElement("tr");
-  tbody.appendChild(tRow);
-  let tData=document.createElement('td');
-  tRow.appendChild(tData);
-  tData.textContent=this.locationName;
-  for (let i = 0; i < hourOperation.length; i++) {
-    let tData = document.createElement("td");
-    tRow.appendChild(tData);
-    tData.textContent = this.cookiesEH[i];
-  }
-  let tDataFprTotal=document.createElement('td');
-  tRow.appendChild(tDataFprTotal);
-  tDataFprTotal.textContent=this.total;
-};
 
-let par = document.getElementById("parent");//globle parent 
 
+//..............................
+//..............................
+
+let par = document.getElementById("parent");//globle parent
+let table2 = document.createElement("table");
+par.appendChild(table2);
+//-----------------------------
+//-----------------------------
 let tableRenderForHead = function () {// create table for the head 
-  let table = document.createElement("table");
-  par.appendChild(table);
-  let thead = document.createElement("thead");
-  table.appendChild(thead);
+
   let tRow1 = document.createElement("tr");
-  thead.appendChild(tRow1);
+  table2.appendChild(tRow1);
   let tHeadForTB=document.createElement('th');
   tRow1.appendChild(tHeadForTB);
   tHeadForTB.textContent='location';
@@ -75,7 +62,44 @@ let tableRenderForHead = function () {// create table for the head
 };
 tableRenderForHead ();//calling the table rander
 
+//----------------------------------------
+//----------------------------------------
 
+SalmonFunction.prototype.tableRender1 = function () {
+  
+  let tRow = document.createElement("tr");
+  table2.appendChild(tRow);
+  let tData=document.createElement('td');
+  tRow.appendChild(tData);
+  tData.textContent=this.locationName;
+  for (let i = 0; i < hourOperation.length; i++) {
+    let tData = document.createElement("td");
+    tRow.appendChild(tData);
+    tData.textContent = this.cookiesEH[i];
+  }
+  let tDataFprTotal=document.createElement('td');
+  tRow.appendChild(tDataFprTotal);
+  tDataFprTotal.textContent=this.total;
+};
+
+//--------------------------------------------
+//--------------------------------------------
+let tableRenderForFoot = function () {// create table for the head 
+
+  let tRow2 = document.createElement("tr");
+  table2.appendChild(tRow2);
+  let tForTF=document.createElement('tf');
+  tRow2.appendChild(tForTF);
+  tForTF.textContent='Tootal';
+  for(let j=0;j<hourOperation;j++){
+    let tForTF=document.createElement('tf');
+    tRow2.appendChild(tForTF);
+    
+  
+  }
+  
+
+};
 
 
 //---------------------------------------------------------------------------------------------
@@ -124,3 +148,6 @@ let lima = new SalmonFunction("Lima", 2, 16, 4.6, [], [], 0);
 lima.getRandomCust();
 lima.getCookesPH();
 lima.tableRender1();
+
+
+tableRenderForFoot();
