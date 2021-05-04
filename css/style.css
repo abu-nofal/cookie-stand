@@ -4,41 +4,126 @@
 
 body {
   font-family: "Acme", sans-serif;
+  width: 960px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.801);
 }
-header {
-  position: fixed;
-  top: 0;
-  background-color: #865858;
-  width: 100%;
-  padding: 20px;
+header{
+  background-color: rgba(0, 0, 0, 0.644);
+  height: 100px;
 }
-
-header h1 {
-  color: white;
-  font-weight: bold;
-  font-size: 30px;
+header img {
+  width: 150px;
+  height: 100px;
+  content: none;
+ padding: 10px;
+  margin-right: 10px;
   float: left;
 }
-header nav {
-  float: right;
+nav{
+  padding: 10px;
+margin: 10px;
 }
-
-header nav ul li {
+nav ul li {
   display: inline-block;
+  padding: 32px;
+  width: 150px;
   margin-right: 10px;
-  text-align: justify;
-  margin-top: 10px;
 }
-header nav ul li a {
-  color: white;
+nav ul li a {
   text-decoration: none;
-  font-size: 18px;
-  text-transform: uppercase;
+  color: white;
+  font-size: medium;
+  text-transform: capitalize;
+}
+a:hover{
+  color: gold;
+  font-size: larger;
+  font-weight: bolder;
+
 }
 
-#salmon {
-  height: 450px;
-  margin-top: 45px;
+#family {
+  background-image:url("http://robertehill.github.io/cookie-stand-REH/img/3.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:cover;
+height: 500px;
+  
+}
+h1{
+  text-align: left;
+  font-size: x-large;
+  font-weight: bold;
+  padding-top: 60px;
+}
+#family h2{
+  text-align: left;
+  font-size: larger;
+  font-weight:800;
+  padding-top: 10px;
+
+
+}
+.one{
+  width: 300px;
+  height: 200px;
+  margin:10px 18px 10px 0;
+}
+.tow{
+  width: 300px;
+  height: 200px;
+  margin:10px 17px 10px 0 ;
+}
+.three{
+  width: 300px;
+  height: 200px;
+  margin: 10px auto;
+}
+
+
+.yes img{
+  float: left;
+  width: 480px;
+  margin-right: 10px;
+}
+#ok{
+  clear: both;
+
+}
+
+#ok article h3 {
+  text-align: left;
+  padding-top: 20px;
+  margin-top: 10px;
+  
+}
+#ok article p{
+ 
+  width: 460px;
+  
+}
+
+h3{
+  font-size: larger;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+p{
+  color: rgb(255, 129, 10);
+  line-height-step: 10px;
+  text-align: justify;
+  line-height: 22px;
+
+  
+}
+.mom{
+  
+  float: right;
+  width: 460px;
+  height: 400px;
+  margin-top: 10px;
+
 }
