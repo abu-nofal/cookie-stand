@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   font-family: "Acme", sans-serif;
   width: 960px;
@@ -126,4 +127,55 @@ p{
   height: 400px;
   margin-top: 10px;
 
+}
+
+
+/* for the seals.html  */
+
+#salmon-head {
+  background-color: rgba(0, 0, 0, 0.644);
+  height: 80px;
+
+}
+#salmon-head h1 {
+
+ padding: 28px;
+  margin-right: 10px;
+  float: left;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+}
+#salmon-head a{
+  display: inline-block;
+  padding: 32px;
+  width: 150px;
+  margin-right: 10px;
+  text-decoration: none;
+  font-size:medium;
+  font-weight: 500;
+  color: aliceblue;
+  float: right;
+}
+#salmon-head a:hover{
+  color: gold;
+  
+  font-weight: 700;
+}
+#storeform{
+  margin-top: 10px;
+  height: 200px;
+  border: 2px solid white;
+  padding: 20px;
+  color: white;
+}
+table{
+  margin-top: 10px;
+  border: 1px solid white;
+}
+table th ,tr ,td   {
+  border: 2px solid rgb(0, 0, 0);
+  text-align: center;
+  border-radius: 4px;
+  color: white;
 }
