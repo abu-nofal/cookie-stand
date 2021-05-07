@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+img{
+  border-radius: 24px;
+}
 
 
 body {
@@ -13,6 +16,7 @@ body {
 header{
   background-color: rgba(0, 0, 0, 0.644);
   height: 100px;
+  border-radius: 24px;
 }
 header img {
   width: 150px;
@@ -70,16 +74,19 @@ h1{
   width: 300px;
   height: 200px;
   margin:10px 18px 10px 0;
+  border-radius: 24px;
 }
 .tow{
   width: 300px;
   height: 200px;
   margin:10px 17px 10px 0 ;
+  border-radius: 24px;
 }
 .three{
   width: 300px;
   height: 200px;
   margin: 10px auto;
+  border-radius: 24px;
 }
 
 
@@ -177,5 +184,89 @@ table th ,tr ,td   {
   border: 2px solid rgb(0, 0, 0);
   text-align: center;
   border-radius: 4px;
+  color: white;
+}
+
+
+#parent{
+  background-image: url('https://cutewallpaper.org/21/free-white-background/Half-Black-Half-White-Background-Best-Background-Images-.png');
+  width: auto;
+  height: 400px;
+  margin: 40px 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border-radius: 24px;
+}
+#img1{
+  position: absolute;
+    top: 58px;
+    left: 68px;
+    width: 573px;
+    height: 305px;
+    border-radius: 24px;
+}
+#parent  section{
+  position: absolute;
+    top: 103px;
+    right: 80px;
+    width: 286.5px;
+    border-radius: 24px;
+    height: 215.5px;
+    background-color: #333333;
+}
+#parent  section h1 ,h2{
+  color: white;
+  text-align: center;
+}
+#parent  section h1{
+  font-size: xx-large;
+  padding-top: 39px;
+  margin-bottom: 21px;
+}
+#parent section h2 {
+  font-size: medium;
+  font-weight: 300;
+}
+#parent section:hover{
+  width: 300px;
+}
+
+#art1{
+  height: 460px;
+}
+.a2 {
+  width: 186px;
+  background-color :black;
+  display: inline-block;
+  height: 120px;
+  border-radius: 24px;
+}
+.a2 h6 {
+  font-size: larger;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  margin: 10px 0 5px;
+  
+}
+.a2 p {
+  text-align: center;
+}
+#foot {
+  text-align: center;
+  margin-top: 40px;
+}
+#foot hr{
+  border: 1px solid white;
+}
+#foot img {
+  position: relative;
+    top: -20px;
+    
+    margin: 0 5px;
+}
+footer p {
+  text-align: center;
   color: white;
 }
