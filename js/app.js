@@ -191,6 +191,12 @@ function submitter (event){
   tableRenderForFoot();
   
  document.getElementById('storeform').reset();
+ if(Max<=Min){
+  alert('you must put the max number  greater than the min number')
+  
+  window.location.reload();
+}
 }
 //--------------------------------
 tableRenderForFoot();
+
