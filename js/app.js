@@ -192,9 +192,11 @@ function submitter (event){
   
  document.getElementById('storeform').reset();
  if(Max<=Min){
-  alert('you must put the max number  greater than the min number')
+  alert('you must put the max number  greater than the min number');
+  
   
   window.location.reload();
+
 }
 }
 //--------------------------------
